@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class Character extends NamedThing{
     private int health;
-    private ArrayList<Item> backpack;
+    private ArrayList<Item> inventory;
     
     public Character(){
-        backpack= new ArrayList<Items>();
+        inventory = new ArrayList<Items>();
         health=100;      
     }
 
