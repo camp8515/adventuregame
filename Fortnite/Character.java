@@ -8,8 +8,16 @@ import java.util.*;
 public class Character extends NamedThing{
     private int health;
     private ArrayList<Item> backpack = new ArrayList<Items>();
-    
+
     public String getItems(){
         return backpack.toString();
+    }
+
+    public void setHealth(int h){
+        this.health=h;
+    }
+
+    public int getHealth(){
+        return health;
     }
 }
