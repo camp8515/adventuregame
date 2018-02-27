@@ -4,7 +4,7 @@
  * @author Deniz Sert, Nic Campanile
  * @version February 27, 2018
  */
-public class Player{
+public class Player extends Entity{
     public Player(){
 
     }
