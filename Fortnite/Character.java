@@ -7,7 +7,12 @@ import java.util.*;
  */
 public class Character extends NamedThing{
     private int health;
-    private ArrayList<Item> backpack = new ArrayList<Items>();
+    private ArrayList<Item> backpack;
+    
+    public Character(){
+        backpack= new ArrayList<Items>();
+        health=100;      
+    }
 
     public String getItems(){
         return backpack.toString();
