@@ -1,4 +1,4 @@
-import java.util.*
+import java.util.*;
 /**
  * Item.java
  * This class describes items characters can use.
@@ -6,11 +6,14 @@ import java.util.*
  * @version February 20, 2018
  */
 public class Item{
-    String place;
-    Character owner;
+    //private Place place;
+    private Character owner;
+    private String soundFileName;
+    
     
     public void makeSound(){
-        
+        Mp3Player player = new Mp3Player("/sounds/"+soundFileName);
+        player.play();
     }
     
 }
