@@ -4,7 +4,7 @@
  * @author Deniz Sert, Nic Campanile
  * @verison February 27, 2018
  */
-public class NPC extends Character{
+public class NPC extends Entity{
     private int AgressiveLevel;
     
     public NPC(int l){
