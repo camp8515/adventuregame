@@ -17,7 +17,7 @@ public class Driver{
         System.out.println("You've been kidnapped and thrown onto an island with only your pickaxe, and you " 
         + "need to survive... good luck");
         if ((int)(Math.random()*4) == 2){
-            NPC foe = new NPC((int)(Math.random()*4) == 2);
+            NPC foe = new NPC((int)(Math.random()*4));
             System.out.println("An enemy has appeared. \n Run or Fight?");
             com=scan.nextLine();
             if(com.equals("Run")){
@@ -26,14 +26,14 @@ public class Driver{
             
             if(com.equals("Fight")){
                 System.out.println("You have the following items in your backpack");
-                for (int i=0;i<backpack.size();i++){
-                    Arrays.toString(backpack.toArray());
+                for (int i=0;i<p.getBackpack().size();i++){
+                    Arrays.toString(p.getBackpack().toArray());
                 }
                 
                 b=foe.fight();
                 if (b==true){
                     System.out.println("You won the fight. You've acquired the foe's inventory.");
-                    for (int i=0;i<foe.backpack.size();i++){
+                    for (int i=0;i<foe.getBackpack().size();i++){
                         
                     }
                     
