@@ -7,8 +7,12 @@ import java.util.*;
  */
 public class Entity extends NamedThing{
     private int health;
-    private ArrayList<Item> backpack = new ArrayList<Items>();
+    private ArrayList<Item> backpack = new ArrayList<Item>();
 
+    public ArrayList getBackpack(){
+        return backpack;
+    }
+    
     public String getItems(){
         return backpack.toString();
     }
