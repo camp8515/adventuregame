@@ -7,13 +7,8 @@
 public class NPC extends Entity{
     private int AggressiveLevel;
     
-    public NPC(int aggression){
-        if (aggression > 10)
-            this.AggressiveLevel = 10;
-        else if (aggression < 0)
-            this.AggressiveLevel = 0;
-        else
-            this.AggressiveLevel = aggression;
+    public NPC(){
+        this.AggressiveLevel = (int)(Math.random() * 10) + 1;
     }
     
     public boolean fight() {
