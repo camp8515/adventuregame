@@ -73,18 +73,18 @@ public class Driver{
             System.out.println("You found a note!");
             if (r1==0){
                 Item n = new Note();
-                System.out.println("The note says: " + n);
+                System.out.println("The note says: Get a " + n + " from " + locations.get(0).getName());
                 p.addItem(n);
             }
             if(r1==1){
                 Note n = new Note();
-                System.out.println("The note says: " + n);
+                System.out.println("The note says: Get a " + n + " from " + locations.get(1).getName());
                 p.addItem(n);
             }
 
             if(r1==2){
                 Note n = new Note();
-                System.out.println("The note says: " + n);
+                System.out.println("The note says: Get a " + n + " from " + locations.get(2).getName());
                 p.addItem(n);
             }
         }

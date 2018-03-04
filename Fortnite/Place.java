@@ -32,4 +32,8 @@ public class Place extends NamedThing{
     public static String getWeaponName(){
         return weapon.getWeaponName();   
     }
+    
+    public String getName(){
+        return name;
+    }
 }
