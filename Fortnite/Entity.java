@@ -24,4 +24,10 @@ public class Entity extends NamedThing{
     public int getHealth(){
         return health;
     }
+    
+    
+    public void addItem(Item i){ //adds item to backpack
+        this.backpack.add(i);
+        System.out.println("You've added this item to your backpack.");
+    }
 }
