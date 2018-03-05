@@ -25,13 +25,10 @@ public class Driver{
         System.out.println("You've been kidnapped and thrown onto an island with only your pickaxe, and you " 
             + "need to survive\n... good luck");
         System.out.println("Pick a location: \n1)Loot Lake\n2)Greasy Grove\n3)Titled Towers\n4)Lonely Lodge");
-        while(icom!=1 || icom!=2 || icom!=3 || icom!=4){
-            icom = scan.nextInt();
-            if (icom!=1 || icom!=2 || icom!=3 || icom!=4)
-                System.out.println("Sorry, that is not a valid answer. Try again.");
-        }
-        currentPlace = locations.get(icom-1);
 
+        icom = scan.nextInt();
+
+        currentPlace = locations.get(icom-1);
         System.out.println("\nYou're at " + currentPlace + ".");
         icom=0;
         if ((int)(Math.random()*4) == 2){
@@ -70,35 +67,39 @@ public class Driver{
         }
 
         if (r==1){ //sets game direction. notes help you find cool stuff in game
+            //debug if statement
+            ArrayList<Place> newLocations = new ArrayList<Place>();
+            for(int i=0;i<locations.size();i++){
+                newLocations.add(locations.get(i));
+                if(newLocations.get(i).getName().equals(currentPlace.getName()))
+                    newLocations.remove(i);
+            }
+
             System.out.println("You found a note!");
             if (r1==0){
-                Item n = new Note();
-                System.out.println("The note says: Get a " + n + " from " + locations.get(0).getName());
+                Item n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
+                System.out.println("The note says: Get a " + n + " from " + newLocations.get(0).getName());
                 p.addItem(n);
             }
             if(r1==1){
-                Note n = new Note();
-                System.out.println("The note says: Get a " + n + " from " + locations.get(1).getName());
+                Note n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
+                System.out.println("The note says: Get a " + n + " from " + newLocations.get(1).getName());
                 p.addItem(n);
             }
 
             if(r1==2){
-                Note n = new Note();
-                System.out.println("The note says: Get a " + n + " from " + locations.get(2).getName());
+                Note n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
+                System.out.println("The note says: Get a " + n + " from " + newLocations.get(2).getName());
                 p.addItem(n);
             }
         }
 
         System.out.println("You've finished your business here. Where do you want to go?\n");
         System.out.println("Pick a location: \n1)Loot Lake\n2)Greasy Grove\n3)Titled Towers\n4)Lonely Lodge");
-        while(icom!=1 || icom!=2 || icom!=3 || icom!=4){
-            icom = scan.nextInt();
-            if (icom!=1 || icom!=2 || icom!=3 || icom!=4)
-                System.out.println("Sorry, that is not a valid answer. Try again.");
-        }
-        
-        currentPlace = locations.get(icom-1);
 
+        icom = scan.nextInt();
+
+        currentPlace = locations.get(icom-1);
         System.out.println("\nYou're at " + currentPlace + ".");
         if ((int)(Math.random()*4) == 2){
             NPC foe = new NPC();
@@ -125,9 +126,9 @@ public class Driver{
             }
 
         }
-        
+
         r=(int)(Math.random()*3); //player finds either a chest or treasure
-        
+
         if(r==2){ //player finds treasure
             Item t = new Treasure();
             t.makeSound();
@@ -141,4 +142,3 @@ public class Driver{
         }
     }
 }
-
