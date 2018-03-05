@@ -6,17 +6,23 @@
  */
 public class Note extends Item{
     String clue;
+    Place location;
     
     public Note(String s){
         this.clue=s;
     }
     
-    public Note(){
-        clue=Place.getWeaponName();
+    public Note(String _clue, Place _location){
+        location = _location;
+        clue = _clue;
     }
     
     public String getClue(){
         return clue;
+    }
+    
+    public Place getLocation() {
+        return location;
     }
     
     public String toString(){
