@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * Player.java
  * This class represents the perspective the user will have.
@@ -6,7 +7,11 @@
  */
 public class Player extends Entity{
     public Player(){
-
+        
+    }
+    
+    public ArrayList getInventory(){
+        return super.getBackpack();
     }
 
 }
