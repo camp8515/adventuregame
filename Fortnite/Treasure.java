@@ -1,7 +1,8 @@
 /**
- * 
- * 
- * 
+ * Treasure.java
+ * This class represents the treasure object.
+ * @author Deniz Sert, Nic Campanile
+ * @version March 5, 2018
  */
 public class Treasure extends Item{
     private int worth;

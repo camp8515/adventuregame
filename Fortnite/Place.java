@@ -7,9 +7,13 @@ import java.util.*;
  */
 public class Place extends NamedThing{
     private String name;
-    private static Weapon weapon;
+    private Weapon weapon=new Weapon();
     private Note n = new Note();
 
+    /**
+     * Constructs a Place object with a random weapon
+     * @param _name the name of the place
+     */
     public Place(String _name){
         name = _name;
         int r = (int)(Math.random()*3);
@@ -27,10 +31,6 @@ public class Place extends NamedThing{
 
     public Weapon getWeapon(){
         return weapon;
-    }
-    
-    public static String getWeaponName(){
-        return weapon.getWeaponName();   
     }
     
     public String getName(){
