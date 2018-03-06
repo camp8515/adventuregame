@@ -16,4 +16,8 @@ public class Treasure extends Item{
         Mp3Player mp3 = new Mp3Player("coin.mp3");
         mp3.play();
     }
+    
+    public String toString(){
+     return "This loot is worth " + worth + " gems.";   
+    }
 }
