@@ -13,14 +13,11 @@ public class Driver{
         int icom=0;
         boolean b=false;
         int r=0;
-        int locationsVisited = 0;
         ArrayList<Place> locations = new ArrayList<Place>();
-        ArrayList<Place> newLocations = new ArrayList<Place>();
         locations.add(0, new Place("Loot Lake"));
         locations.add(1, new Place("Greasy Grove"));
         locations.add(2, new Place("Tilted Towers"));
         locations.add(3, new Place("Lonely Lodge"));
-        newLocations.addAll(locations);
         Place currentPlace;
         boolean life=true;
         int iteration=0;
@@ -31,18 +28,13 @@ public class Driver{
 
         while(life){   
             if(iteration>0)
-                System.out.println("The sun's going down, it's time to move on.");
-
-            System.out.println("\n\nPick a location:");
-            for(int x = 0;x<locations.size() - locationsVisited;x++){
-                System.out.println((x+1) + ") "+ newLocations.get(x));
-            }
+                System.out.println("A storm is approaching, it's time to move on.");
+            System.out.println("\n\nPick a location: \n1)Loot Lake\n2)Greasy Grove\n3)Titled Towers\n4)Lonely Lodge");
 
             icom = scan.nextInt();
-            locationsVisited++;
-            currentPlace = newLocations.get(icom-1);
+
+            currentPlace = locations.get(icom-1);
             System.out.println("\nYou're at " + currentPlace + ".");
-            newLocations.remove(newLocations.indexOf(currentPlace));
             icom=0;
             if ((int)(Math.random()*4) == 2){
                 Foe foe = new Foe();
@@ -76,7 +68,7 @@ public class Driver{
 
             }
 
-            r=(int)(Math.random()*3); //player finds either a note or treasure
+            r=(int)(Math.random()*3); //player finds either a note, treasure, or a weapon
             int r1 = (int)(Math.random()*3); //random notes
             if(r==2){ //player finds treasure
                 Item t = new Treasure();
@@ -87,36 +79,39 @@ public class Driver{
 
             if (r==1){ //sets game direction. notes help you find cool stuff in game
                 //debug if statement
-
-                /*
-                for(int i=0;i<locations.size();i++){ //makes the currentPlace not an option to go to
-                newLocations.add(i, locations.get(i));
-                if(newLocations.get(i).getName().equalsIgnoreCase(currentPlace.getName()))
-                newLocations.remove(i);
+                ArrayList<Place> newLocations = new ArrayList<Place>();
+                for(int i=0;i<locations.size();i++){ //copies every location into a new arraylist
+                    newLocations.add(i, locations.get(i));
                 }
-                 */
+
+                for(int i=0;i<locations.size()-1;i++){ //removes the current location from arraylist
+                    if(newLocations.get(i).getName().equalsIgnoreCase(currentPlace.getName()))
+                        newLocations.remove(i);
+                }
+
                 System.out.println("You found a note!");
                 if (r1==0){
-                    Item n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
-                    System.out.println("The note says: Get a " + n + " from " + locations.get(0).getName());
+                    Item n = new Note(newLocations.get(0).getWeapon().getWeaponName(), currentPlace);
+                    System.out.println("The note says: Get a " + n + " from " + newLocations.get(0).getName());
                     p.addItem(n);
                 }
                 if(r1==1){
-                    Note n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
-                    System.out.println("The note says: Get a " + n + " from " + locations.get(1).getName());
+                    Note n = new Note(newLocations.get(1).getWeapon().getWeaponName(), currentPlace);
+                    System.out.println("The note says: Get a " + n + " from " + newLocations.get(1).getName());
                     p.addItem(n);
                 }
 
                 if(r1==2){
-                    Note n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
-                    System.out.println("The note says: Get a " + n + " from " + locations.get(2).getName());
+                    Note n = new Note(newLocations.get(2).getWeapon().getWeaponName(), currentPlace);
+                    System.out.println("The note says: Get a " + n + " from " + newLocations.get(2).getName());
                     p.addItem(n);
                 }
             }
+
             if(r==0){
                 System.out.println("You found a " + currentPlace.getWeapon().getWeaponName() + 
                     ". This will increase your chances of winning a fight.");
-                p.addItem(currentPlace.getWeapon());
+                p.addItem((currentPlace.getWeapon()));
 
             }
             iteration++;
@@ -124,3 +119,4 @@ public class Driver{
 
     }
 }
+
