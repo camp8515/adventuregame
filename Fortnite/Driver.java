@@ -48,7 +48,7 @@ public class Driver{
                 }
                 else
                     System.out.println("You don't have any weapons! You have to fight with your " 
-                    + "bare hands!");
+                        + "bare hands!");
 
                 b=foe.fight();
                 if (b==true){ //player wins fight
@@ -68,7 +68,7 @@ public class Driver{
 
             }
 
-            r=(int)(Math.random()*3); //player finds either a note or treasure
+            r=(int)(Math.random()*3); //player finds either a note, treasure, or a weapon
             int r1 = (int)(Math.random()*3); //random notes
             if(r==2){ //player finds treasure
                 Item t = new Treasure();
@@ -85,7 +85,6 @@ public class Driver{
                     if(newLocations.get(i).getName().equalsIgnoreCase(currentPlace.getName()))
                         newLocations.remove(i);
                 }
-
                 System.out.println("You found a note!");
                 if (r1==0){
                     Item n = new Note(currentPlace.getWeapon().getWeaponName(), currentPlace);
@@ -103,6 +102,13 @@ public class Driver{
                     System.out.println("The note says: Get a " + n + " from " + newLocations.get(2).getName());
                     p.addItem(n);
                 }
+            }
+
+            if(r==0){
+                System.out.println("You found a " + currentPlace.getWeapon().getWeaponName() + 
+                    ". This will increase your chances of winning a fight.");
+                p.addItem(currentPlace.getWeapon());
+
             }
             iteration++;
         }
