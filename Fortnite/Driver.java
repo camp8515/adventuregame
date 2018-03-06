@@ -81,7 +81,7 @@ public class Driver{
                 //debug if statement
                 ArrayList<Place> newLocations = new ArrayList<Place>();
                 for(int i=0;i<locations.size();i++){ //makes the currentPlace not an option to go to
-                    newLocations.add(locations.get(i));
+                    newLocations.add(i, locations.get(i));
                     if(newLocations.get(i).getName().equalsIgnoreCase(currentPlace.getName()))
                         newLocations.remove(i);
                 }
