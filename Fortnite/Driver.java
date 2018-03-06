@@ -26,6 +26,7 @@ public class Driver{
         Place currentPlace;
         boolean life=true;
         int iteration=0;
+        int LootTotal=0;
 
         System.out.println("*******************\nWelcome to Fornite! \n*******************");
         System.out.println("You've been kidnapped and thrown onto an island with only your pickaxe, and you " 
@@ -85,7 +86,7 @@ public class Driver{
 
                 }
                 if (b==false){ //player loses fight
-                    System.out.println("\nYou've lost the game. Goodbye.");
+                    System.out.println("\nYou've lost the game. You ended with " + lootTotal + " gems.");
                     life=false;
                     System.exit(0); //ends game
                 }
@@ -99,6 +100,7 @@ public class Driver{
                 //t.makeSound();
                 System.out.println("You found some treasure!");
                 p.addItem(t);
+                lootTotal+=p.getBackpack().get(p.getBackpack().size()-1).getValue();
             }
 
             if (r==1){ //sets game direction. notes help you find cool stuff in game
@@ -138,6 +140,7 @@ public class Driver{
             iteration++;
 
         }
+        
 
     }
 }
