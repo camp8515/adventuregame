@@ -20,4 +20,8 @@ public class Treasure extends Item{
     public String toString(){
      return "This loot is worth " + worth + " gems.";   
     }
+    
+    public int getValue(){
+     return worth;   
+    }
 }
