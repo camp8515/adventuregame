@@ -26,7 +26,7 @@ public class Driver{
         System.out.println("You've been kidnapped and thrown onto an island with only your pickaxe, and you " 
             + "need to survive\n... good luck");
 
-        while(life){  
+        while(life){   
             if(iteration>0)
                 System.out.println("The sun's going down, it's time to move on.");
             System.out.println("\n\nPick a location: \n1)Loot Lake\n2)Greasy Grove\n3)Titled Towers\n4)Lonely Lodge");
@@ -37,13 +37,18 @@ public class Driver{
             System.out.println("\nYou're at " + currentPlace + ".");
             icom=0;
             if ((int)(Math.random()*4) == 2){
-                NPC foe = new NPC();
+                Foe foe = new Foe();
                 System.out.println("An enemy has appeared. Fight!");
 
-                System.out.println("You have the following items in your backpack");
-                for (int i=0;i<p.getBackpack().size();i++){
-                    System.out.println(p.getBackpack().get(i).toString());
+                if(p.getBackpack().size()>0){
+                    System.out.println("You have the following items in your backpack");
+                    for (int i=0;i<p.getBackpack().size();i++){
+                        System.out.println(p.getBackpack().get(i).toString());
+                    }
                 }
+                else
+                    System.out.println("You don't have any weapons! You have to fight with your " 
+                    + "bare hands!");
 
                 b=foe.fight();
                 if (b==true){ //player wins fight
@@ -102,8 +107,6 @@ public class Driver{
             iteration++;
         }
 
-        
     }
 }
-
 
