@@ -21,7 +21,7 @@ public class Weapon extends Item{
     }
 
     public String toString(){
-        return "This is a " + this.name + " with a damage level of " + " damage.";
+        return this.name;
     }
 
     public String getWeaponName(){
