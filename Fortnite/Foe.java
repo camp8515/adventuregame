@@ -17,9 +17,9 @@ public class Foe extends Entity{
      * @return true if the player won the fight
      * @return false if the player lost the fight
      */
-    public boolean fight() {
+    public boolean fight(int backpackItems) {
         double results = this.AggressiveLevel * Math.random();
-        
+        results-= (backpackItems * (Math.random() + 1));
         if (results > 5){
             System.out.println("You won!");
             return true;
