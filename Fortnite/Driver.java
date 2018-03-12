@@ -100,7 +100,7 @@ public class Driver{
                     //t.makeSound();
                     System.out.println("You found some gems!");
                     p.addItem(t);
-                    LootTotal+=1;
+                    LootTotal += ((Treasure)t).getValue();
                 }
 
                 if (r==1){ //sets game direction. notes help you find cool stuff in game
