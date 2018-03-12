@@ -18,11 +18,11 @@ public class Place extends NamedThing{
         name = _name;
         int r = (int)(Math.random()*3);
         if(r==0)
-            weapon.setName("bow");
+            weapon.setName("Bow");
         else if (r==1)
-            weapon.setName("sword");
+            weapon.setName("Sword");
         else if (r==2)
-            weapon.setName("dagger");
+            weapon.setName("Dagger");
     }
 
     public String toString(){
