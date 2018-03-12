@@ -6,7 +6,7 @@ import java.util.*;
  * @version March 5, 2018
  */
 public class Driver{
-    private static Player p = new Player();
+    private static Entity p = new Entity();
 
     public static void main (String[] args){
         System.out.println("\f");
