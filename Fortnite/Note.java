@@ -36,7 +36,7 @@ public class Note extends Item{
     }
     
     public String toString(){
-     return clue;        
+     return "Note with a clue regarding: " + clue;        
     }
     
     

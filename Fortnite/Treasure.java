@@ -18,7 +18,7 @@ public class Treasure extends Item{
     }
     
     public String toString(){
-     return "Gem";   
+     return "Gems";   
     }
     
     public int getValue(){
