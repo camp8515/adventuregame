@@ -6,7 +6,7 @@ import java.util.*;
  * @version March 5, 2018
  */
 public class PresentDriver{
-    private static Player p = new Player();
+    private static Entity p = new Entity();
 
     public static void main (String[] args){
         System.out.println("\f");
@@ -119,7 +119,7 @@ public class PresentDriver{
             if (battle == 2){
                 //  System.out.println("Fight sequence");
                 Foe foe = new Foe();
-                System.out.println("An enemy has appeared. Fight!");
+                System.out.println("\nAn enemy has appeared. Fight!");
 
                 if(p.getBackpack().size()>0){
                     System.out.println("You have the following items in your backpack");
@@ -205,7 +205,7 @@ public class PresentDriver{
                     locationsVisited = 0;
                     iteration = 0;
                     LootTotal = 0;
-                    p = new Player();
+                    p = new Entity();
                 }
                 else
                     System.out.println("Have a good day!");
